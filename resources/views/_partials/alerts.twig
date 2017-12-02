@@ -1,0 +1,13 @@
+{% if session('success') %}
+    <div class="alert alert-success">
+        <p class="mb-0">{{ session('success')|raw }}</p>
+    </div>
+{% endif %}
+
+{% if errors.any %}
+    <div class="alert alert-danger">
+        {% for error in errors.all %}
+            <p class="mb-0">{{ error }}</p>
+        {% endfor %}
+    </div>
+{% endif %}

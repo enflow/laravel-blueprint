@@ -1,0 +1,27 @@
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="/"><img src="/img/logo-white.png"></a>
+    <ul class="nav">
+        <li class="nav-item {{ request().is('/') or request().is('dashboard*') ? 'active' : '' }}">
+            <a class="nav-link" href="/">Dashboard</a>
+        </li>
+    </ul>
+
+    <div class="profile">
+        <a href="#" class="profile-user">
+            <img src="{{ gravatar(auth_user().email) }}">
+            <span><strong>{{ auth_user().name }}</strong><br><small>{{ auth_user().email }}</small></span>
+        </a>
+
+        <div class="profile-collapsed">
+            <ul>
+                <li><a class="profile-link" href="#">Accountgegevens</a></li>
+                <li>
+                    <form class="logout" action="{{ route('logout') }}" method="post">
+                        {{ csrf_field() }}
+                        <button class="btn btn-link profile-link">Uitloggen</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
