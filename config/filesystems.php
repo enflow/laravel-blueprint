@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -13,7 +12,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => 'local',
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +25,7 @@ return [
     |
     */
 
-    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+    'cloud' => 's3',
 
     /*
     |--------------------------------------------------------------------------
@@ -40,7 +39,6 @@ return [
     | Supported Drivers: "local", "ftp", "s3", "rackspace"
     |
     */
-
     'disks' => [
 
         'local' => [
@@ -49,17 +47,17 @@ return [
         ],
 
         'public' => [
-            'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'driver' => 'local',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
         's3' => [
             'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
+            'key' => env('AWS_KEY'),
+            'secret' => env('AWS_SECRET'),
+            'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
 
