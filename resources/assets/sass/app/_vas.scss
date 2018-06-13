@@ -1,0 +1,27 @@
+#colorgridpointer {
+    height: 18px;
+    border-right: 2px solid #000;
+    width: 50%;
+}
+
+#vasvraag {
+    padding: 1px 3px;
+}
+
+#colorgrid {
+    height: 18px;
+    background: url('/img/vas-gradient.png') no-repeat center center;
+}
+
+#scoretip {
+    position: absolute;
+    width: 200px;
+    background: #fff;
+    background: rgba(255, 255, 255, .9);
+    border: 1px solid #333;
+    color: #333;
+    left: 50%;
+    top: 20%;
+    display: none;
+    font-size: 13px;
+}

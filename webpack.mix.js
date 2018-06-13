@@ -18,7 +18,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .sourceMaps()
     .version()
     .browserSync({
-        proxy: 'laravel.enflow',
+        proxy: 'quickscan.enflow-client',
         notify: false,
         logSnippet: false,
         online: false

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <title>{{ config('app.name') }}</title>
+    <meta charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
+
+    <script src="{{ mix('js/app.js') }}"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+{% include "results/_results.twig" %}
+</body>
+</html>
