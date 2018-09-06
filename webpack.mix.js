@@ -1,4 +1,4 @@
-let mix = require('laravel-mix');
+const mix = require('laravel-mix');
 
 mix.webpackConfig(webpack => {
     return {
@@ -13,13 +13,22 @@ mix.webpackConfig(webpack => {
     };
 });
 
-mix.js('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css')
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps()
     .version()
     .browserSync({
-        proxy: 'laravel.enflow',
+        https: {
+            key: "/etc/dev-ssl/key.pem",
+            cert: "/etc/dev-ssl/cert.pem"
+        },
+        proxy: 'laravel.enflow.test',
         notify: false,
         logSnippet: false,
-        online: false
+        online: false,
+        open: false,
+        port: 3100,
+        ui: {
+            port: 3101
+        }
     });
