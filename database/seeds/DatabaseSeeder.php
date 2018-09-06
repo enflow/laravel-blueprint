@@ -6,7 +6,6 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        $this->call(ResultDescriptionSeeder::class);
-        $this->call(CopySeeder::class);
+        // $this->call(UsersTableSeeder::class);
     }
 }

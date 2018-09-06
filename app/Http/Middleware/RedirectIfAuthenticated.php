@@ -2,18 +2,16 @@
 
 namespace App\Http\Middleware;
 
-use App\Respondent;
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
-class RespondentMiddleware
+class RedirectIfAuthenticated
 {
     public function handle($request, Closure $next, $guard = null)
     {
-        if (!auth()->check()) {
-            Respondent::createAndLogin();
+        if (Auth::guard($guard)->check()) {
+            return redirect('/home');
         }
-
-        view()->share('respondent', auth()->user());
 
         return $next($request);
     }

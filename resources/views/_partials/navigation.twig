@@ -1,18 +1,27 @@
-<div class="list-group">
-    {% for category in categories %}
-        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center {{ category.slug == request().segment(1) ? 'active' : null }}" href="{{ route('questions.show', {'category': category}) }}">
-            {{ category.name }}
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="/"><img src="/img/logo-white.png"></a>
+    <ul class="nav">
+        <li class="nav-item {{ request().is('/') or request().is('dashboard*') ? 'active' : '' }}">
+            <a class="nav-link" href="/">Dashboard</a>
+        </li>
+    </ul>
 
-
-
-            <div class="progress-circle progress-{{ category.progressKeeper().percentage()|round }}"></div>
-
+    <div class="profile">
+        <a href="#" class="profile-user">
+            <img src="{{ gravatar(auth_user().email) }}">
+            <span><strong>{{ auth_user().name }}</strong><br><small>{{ auth_user().email }}</small></span>
         </a>
-    {% endfor %}
 
-    <a class="list-group-item list-group-item-action" href="{{ route('results.index') }}">Resultaten</a>
-</div>
-
-<div class="text-center mt-2">
-    <a class="small text-muted" href="{{ route('reset') }}" onclick="return confirm('Weet je het zeker?');">opnieuw beginnen</a>
-</div>
+        <div class="profile-collapsed">
+            <ul>
+                <li><a class="profile-link" href="#">Accountgegevens</a></li>
+                <li>
+                    <form class="logout" action="{{ route('logout') }}" method="post">
+                        {{ csrf_field() }}
+                        <button class="btn btn-link profile-link">Uitloggen</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

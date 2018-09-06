@@ -17,15 +17,14 @@
     ],
     "require": {
         "php": "^7.1.3",
-        "enflow/component-branding": "dev-master",
         "enflow/component-laravel": "dev-master",
-        "fideloper/proxy": "^4.0",
+        "enflow/component-branding": "dev-master",
         "forxer/laravel-gravatar": "^1.1",
         "guzzlehttp/guzzle": "~6.0",
+        "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "~1.0",
-        "rcrowe/twigbridge": "^0.9.5",
-        "spatie/browsershot": "^3.22"
+        "rcrowe/twigbridge": "^0.9.5"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
