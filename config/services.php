@@ -35,8 +35,12 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
-    'rollbar' => [
-        'access_token' => '85dace427edb4908a9b30eb87f5efc65',
+    'postmark' => [
+        'token' => env('POSTMARK_TOKEN'),
+    ],
+
+    'bugsnag' => [
+        'api_key' => '',
     ],
 
 ];
