@@ -180,7 +180,6 @@ return [
             'head',
             'last',
             'query_string',
-            'gravatar',
             'str_repeat',
             'app',
             'mix',
