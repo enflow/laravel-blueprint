@@ -11,20 +11,14 @@
     },
     "dependencies": {
         "axios": "^0.17",
-        "bootstrap": "^4.3.1",
+        "bootstrap": "^4.1.3",
         "browser-sync": "^2.18.13",
         "browser-sync-webpack-plugin": "^1.2.0",
         "cross-env": "^5.1",
-        "enflow-sumoselect": "^4.0.4",
         "jquery": "^3.2",
-        "laravel-mix": "^4.0.14",
+        "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
+        "enflow-sumoselect": "^4.0.4",
         "popper.js": "^1.12.3"
-    },
-    "devDependencies": {
-        "resolve-url-loader": "2.3.1",
-        "sass": "^1.19.0",
-        "sass-loader": "7.*",
-        "vue-template-compiler": "^2.6.10"
     }
 }
