@@ -185,11 +185,6 @@ return [
             'mix',
             'branding',
             'request',
-            'svg' => [
-                'is_safe' => ['html'],
-                'callback' => 'svg'
-            ],
-            'markdown',
         ],
 
         /*

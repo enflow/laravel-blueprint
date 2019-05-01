@@ -1,23 +1,13 @@
-@import 'variables';
+// Variables
+@import "variables";
 
+// Bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";
-@import "../../node_modules/sass-burger/burger";
+@import "../../node_modules/enflow-sumoselect/sumoselect";
+@import '../../vendor/enflow/component-branding/resources/assets/branding';
 
-@import 'app/body';
-@import 'app/sidebar';
+// Layout
+@import 'app/base';
 @import 'app/typography';
-@import 'app/nav';
-@import 'app/header';
-@import 'app/content';
-@import 'app/information-list';
-@import 'app/filter';
-@import 'app/guest';
-
-@import 'components/buttons';
-@import 'components/alerts';
-@import 'components/badges';
-@import 'components/custom-control';
-@import 'components/forms';
-@import 'components/vcard';
-@import 'components/dropzone';
-@import 'components/tables';
+@import 'app/panel';
+@import 'app/buttons';

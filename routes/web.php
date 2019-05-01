@@ -2,10 +2,10 @@
 
 Route::auth();
 
-// Route::group(['middleware' => 'auth'], function () {
-//     Route::get('/', 'DashboardController@index')->name('dashboard.index');
-// });
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', 'DashboardController@index')->name('dashboard.index');
+});
+Auth::routes();
 
-Route::view('/voorstel', 'views.voorstel');
-Route::view('/admin/dashboard', 'views.admin.dashboard');
+Route::get('/home', 'HomeController@index')->name('home');
 

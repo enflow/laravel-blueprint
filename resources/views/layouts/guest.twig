@@ -1,14 +1,15 @@
 {% extends "layouts/base.twig" %}
 
 {% block body %}
-    <div class="guest">
-        <div class="guest-background">
+    <div class="panel-wrapper panel-wrapper-centered">
+        <div class="panel">
+            {% include "layouts/_partials/alerts.twig" %}
 
+            {{ block('panel') }}
         </div>
-        <div class="guest-content">
-            <div class="guest-panel">
-            {{ block('content') }}
-            </div>
+
+        <div class="mt-3 w-100 d-flex justify-content-center">
+            {{ branding().color('black').render()|raw }}
         </div>
     </div>
 {% endblock %}

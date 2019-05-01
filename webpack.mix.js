@@ -13,5 +13,9 @@ mix.js('resources/js/app.js', 'public/js')
         notify: false,
         logSnippet: false,
         online: false,
-        open: false
+        open: false,
+        port: 3100,
+        ui: {
+            port: 3101
+        }
     });
