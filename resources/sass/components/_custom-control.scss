@@ -1,0 +1,21 @@
+.custom-control {
+    padding-left: 1.75rem;
+
+    label {
+        font-weight: normal;
+    }
+}
+
+.custom-control-label::before {
+    background: transparent;
+    border: 1px solid $primary;
+    width: 1.25rem;
+    height: 1.25rem;
+    left: -1.75rem;
+}
+
+.custom-control-label::after {
+    width: 1.25rem;
+    height: 1.25rem;
+    left: -1.75rem;
+}

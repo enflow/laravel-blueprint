@@ -1,0 +1,49 @@
+{% extends "layouts/base.twig" %}
+
+{% block contentClass %}content content--full{% endblock %}
+
+{% block sidebar %}
+    <a class="btn btn-primary btn-block" href="#">nana</a>
+
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>Naam</th>
+            <th>Domein</th>
+            <th>Callronde</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>2019-100</th>
+            <td>Basiszorgprogramma RIBW</td>
+            <td>KFZ</td>
+            <td>Maart 2019</td>
+            <td><span class="badge badge-pill badge-light">Concept</span></td>
+            <td> > </td>
+        </tr>
+        <tr>
+            <th>2019-101</th>
+            <td>Implementatietraject duurzame verbinding</td>
+            <td>KFZ</td>
+            <td>Maart 2019</td>
+            <td><span class="badge badge-pill badge-success">Afgerond</span></td>
+            <td> > </td>
+        </tr>
+        <tr>
+            <th>2019-102</th>
+            <td>Responsiviteit NAW</td>
+            <td>KFZ</td>
+            <td>Maart 2019</td>
+            <td><span class="badge badge-pill badge-warning">In beoordeling</span></td>
+            <td> > </td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

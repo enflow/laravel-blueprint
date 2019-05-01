@@ -1,0 +1,20 @@
+.form-group {
+    margin-bottom: 1.25rem;
+
+    > label {
+        font-weight: bold;
+    }
+
+    label {
+        margin-bottom: .25rem;
+        color: $primary;
+
+        svg {
+            margin-left: 6px;
+        }
+    }
+
+    .form-control {
+        border-bottom: 2px solid #E9E9F0;
+    }
+}

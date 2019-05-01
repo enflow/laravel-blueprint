@@ -1,0 +1,25 @@
+.guest {
+    min-height: 100vh;
+    display: flex;
+
+    .guest-background {
+        background: #efefef;
+        flex: 0 0 50%;
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+
+    .guest-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 50%;
+
+        .guest-panel {
+            max-width: 450px;
+            width: 100%;
+        }
+    }
+}

@@ -1,11 +1,32 @@
-@include media-breakpoint-down(sm) {
-    h1 {
-        font-size: 1.5rem;
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-base;
+    color: $primary;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 26px;
+    margin-bottom: 2rem;
+
+    @include media-breakpoint-down(md) {
+        font-size: 22px;
     }
-    h2 {
-        font-size: 1.25rem;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-down(md) {
+        font-size: 18px;
     }
-    h3 {
-        font-size: 1rem;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: .5rem;
+
+    @include media-breakpoint-down(md) {
+        font-size: 16px;
     }
 }

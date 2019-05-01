@@ -1,21 +1,18 @@
-$primary: #2babc5;
+$primary: #43425D;
+$secondary: rgba($primary, .4);
+$light: #F5F6FA;
+$body-color: rgba($primary, .6);
 
 $theme-colors: (
-        "primary": $primary
+        "primary": $primary,
+        "secondary": $secondary,
 );
 
-$link-color: #333;
-$link-hover-color: darken($link-color, 15%);
+$font-family-base: 'Aller', Helvetica, Arial, sans-serif;
+$line-height-base: 1.7;
 
-$body-bg: #f1f1f1;
-
-$border-radius-lg: 0;
-$border-radius: 0;
-$border-radius-sm: 0;
-
-$h1-font-size: 2rem;
-$h2-font-size: 1.5rem;
-$h3-font-size: 1.25rem;
-$headings-font-weight: 600;
-
-$font-family-sans-serif: 'Open Sans', sans-serif;
+$input-btn-focus-box-shadow: none;
+$btn-active-box-shadow: none;
+$btn-box-shadow: none;
+$input-bg: $light;
+$input-border-width: 0;

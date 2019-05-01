@@ -1,0 +1,94 @@
+{% extends "layouts/base.twig" %}
+
+{% block sidebar %}
+    <a class="btn btn-primary btn-block" href="#">Voorstel indienen</a>
+    <ul class="information-list mt-4">
+        <li>
+            <div class="information-list-label">Call</div>
+            <div class="information-list-value">2019-102</div>
+        </li>
+        <li>
+            <div class="information-list-label">Deadline voorstel indienen</div>
+            <div class="information-list-value">22 april 2019</div>
+        </li>
+        <li>
+            <div class="information-list-label">Looptijd project</div>
+            <div class="information-list-value">12 maanden</div>
+        </li>
+        <li>
+            <div class="information-list-label">Maximaal beschikbaar budget</div>
+            <div class="information-list-value">€ 55.000</div>
+        </li>
+        <li>
+            <div class="information-list-label mb-2">Contactpersoon</div>
+            <div class="vcard">
+                <img class="vcard-profile-picture" src="/img/woman.jpg" alt="Woman">
+                <div class="vcard-info">
+                    <div class="vcard-name">Elisabeth Pomp</div>
+                    <div class="vcard-subtext">elisabeth@kfz.nl</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="information-list-label d-flex justify-content-between mb-2">
+                Participanten
+                <a href="#">Beheren</a>
+            </div>
+            <div class="vcard">
+                <img class="vcard-profile-picture" src="/img/woman.jpg" alt="Woman">
+                <div class="vcard-info">
+                    <div class="vcard-name">Elisabeth Pomp</div>
+                    <div class="vcard-subtext">elisabeth@kfz.nl</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <a class="btn btn-outline-secondary btn-block mt-auto" href="#">Terug naar call</a>
+{% endblock %}
+
+{% block content %}
+    <h1>Responsiviteit van mensen met NAH</h1>
+    <h2 class="text-secondary mb-2">Projectvoorstel indienen</h2>
+    <p class="mb-4">Een projectvoorstel is een korte aanvraag naar aanleiding van een gepubliceerde call en dient als voorselectie voor de uitgewerkte aanvraag. Een projectvoorstel moet worden ingediend via het onderstaande formulier.</p>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Instelling</label>
+            <input type="email" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Contactpersoon</label>
+            <input type="email" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Naam project</label>
+            <input type="email" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+            <label class="d-flex align-items-center justify-content-between" for="exampleFormControlTextarea1">
+                <div class="d-flex align-items-center">Doel projectvoorstel <span data-toggle="tooltip" title="Tooltip on top">{{ svg('info-circle') }}</span></div>
+                <span class="small"><strong>27</strong> / 300 woorden</span>
+            </label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Slotbepalingen</label>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Het projectvoorstel is gecontroleerd en verbeterd op spel- en taalfouten. </label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                <label class="custom-control-label" for="customCheck2">Het projectvoorstel is opgemaakt conform APA.</label>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label>Aanvullende documentatie</label>
+            <p>Heb je nog aanvullende documenten die je graag wilt meesturen met dit voorstel? Voeg deze hieronder toe.</p>
+            <div class="dropzone">
+                Sleep hier bestanden of <span class="text-primary font-weight-bold ml-1">klik hier</span>
+            </div>
+        </div>
+        <button type="submit" class="mt-5 btn btn-primary">Voorstel versturen</button>
+    </form>
+{% endblock %}

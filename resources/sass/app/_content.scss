@@ -1,0 +1,9 @@
+.content {
+    padding: 3.25rem 4rem;
+    max-width: 920px;
+
+    &--full {
+        width: 100%;
+        max-width: none;
+    }
+}
