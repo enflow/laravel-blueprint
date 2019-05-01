@@ -40,7 +40,7 @@ return [
     ],
 
     'bugsnag' => [
-        'api_key' => '',
+        'api_key' => 'c5a1e66ca4da976a6d0d4299c71e8992',
     ],
 
 ];
