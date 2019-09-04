@@ -2,6 +2,9 @@
 
 return [
 
+    // See \Enflow\Tower\Http\Middleware\RedirectIfAuthenticated
+    'home_url' => '/backend',
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
