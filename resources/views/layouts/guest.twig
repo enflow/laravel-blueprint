@@ -3,13 +3,9 @@
 {% block body %}
     <div class="panel-wrapper panel-wrapper-centered">
         <div class="panel">
-            {% include "layouts/ppartials/alerts.twig" %}
+            {% include "layouts/partials/alerts.twig" %}
 
             {{ block('panel') }}
-        </div>
-
-        <div class="mt-3 w-100 d-flex justify-content-center">
-            {{ branding().color('black').render()|raw }}
         </div>
     </div>
 {% endblock %}

@@ -12,14 +12,14 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
-        {#{{ googleAnalytics|tag }}#}
+        {{ googleAnalyticsTag|raw }}
         {{ browsersync() }}
 
         <script src="{{ mix('js/app.js') }}"></script>
     </head>
     <body>
     {% if auth_check() %}
-        {% include "_partials/navigation.twig" %}
+        {% include "layouts/partials/header.twig" %}
     {% endif %}
     {{ block('body') }}
     </body>

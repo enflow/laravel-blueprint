@@ -17,7 +17,6 @@
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.13",
-        "enflow-sumoselect": "^4.0.4",
         "popper.js": "^1.12.3",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
