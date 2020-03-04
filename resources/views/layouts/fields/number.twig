@@ -1,0 +1,6 @@
+{% embed "layouts/fields/wrapper.twig" %}
+    {% block label %}{{ label ?? name ?? null }}{% endblock %}
+    {% block input %}
+        <input class="form-input block w-full {{ class ?? null }}" type="number" name="{{ name }}" value="{{ value ?? old(name) }}" placeholder="{{ placeholder|default(null) }}" {{ (required ?? null) ? 'required' : '' }} min="0" step="{{ step ?? 1 }}">
+    {% endblock %}
+{% endembed %}

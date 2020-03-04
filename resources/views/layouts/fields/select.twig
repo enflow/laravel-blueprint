@@ -1,0 +1,13 @@
+{% embed "layouts/fields/wrapper.twig" %}
+    {% block label %}{{ label ?? name ?? null }}{% endblock %}
+    {% block input %}
+        <div class="relative">
+            <select class="form-select block w-full {{ class ?? null }}" name="{{ name ?? null }}" id="{{ name ?? null }}" {{ (required ?? null) ? 'required' : '' }}>
+                <option value="">Maak een selectie</option>
+                {% for row in values %}
+                    <option value="{{ row['id'] }}" {{ (selected ?? null) == row['id'] ? 'selected' : '' }}>{{ row['name'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    {% endblock %}
+{% endembed %}

@@ -1,28 +1,23 @@
 {% extends "layouts/guest.twig" %}
 
-{% block panel %}
-    <h1 class="mb-4">Nieuw wachtwoord instellen</h1>
+{% block title %}Nieuw wachtwoord instellen{% endblock %}
 
-    <form method="post" action="/password/reset">
+{% block panel %}
+    <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate mb-4">Nieuw wachtwoord instellen</h1>
+
+    <form method="post" action="{{ route('password.update') }}">
         {{ csrf_field() }}
         <input type="hidden" name="token" value="{{ token }}">
 
-        <div class="form-group">
-            <input class="form-control" placeholder="E-mailadres" type="email" name="email" value="{{ old('email', email) }}" autofocus required>
-        </div>
+        {% include 'layouts/fields/input' with {'name': 'email', 'type': 'email', 'label': 'E-mailadres', 'value': old('email', email), 'required': true} %}
 
-        <div class="form-group">
-            <input class="form-control" placeholder="Nieuw wachtwoord" type="password" name="password" required>
-        </div>
+        {% include 'layouts/fields/input' with {'name': 'password', 'type': 'password', 'label': 'Nieuw wachtwoord', 'required': true} %}
+        <p class="text-sm text-gray-500 -mt-1 mb-2">Minimaal 8 karakters.</p>
 
-        <div class="form-group">
-            <input class="form-control" placeholder="Herhaal nieuw wachtwoord" type="password" name="password_confirmation" required>
-        </div>
+        {% include 'layouts/fields/input' with {'name': 'password_confirmation', 'type': 'password', 'label': 'Herhaal nieuw wachtwoord', 'required': true} %}
 
-        <div class="form-group mb-0">
-            <button class="btn btn-primary">
-                Wachtwoord instellen
-            </button>
+        <div class="mt-8 flex justify-between items-center">
+            <button class="button-primary">Wachtwoord instellen</button>
         </div>
     </form>
 {% endblock %}

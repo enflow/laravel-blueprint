@@ -1,25 +1,21 @@
 {% extends "layouts/guest.twig" %}
 
+{% block title %}Wachtwoord vergeten{% endblock %}
+
 {% block panel %}
-    {% if session_get('status') %}
-        <div class="alert alert-success">
-            {{ session_get('status') }}
-        </div>
-    {% endif %}
+    <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate mb-4">Wachtwoord vergeten</h1>
 
-    <h1 class="mb-4">Wachtwoord vergeten</h1>
-
-    <form method="post" action="/password/email">
+    <form method="post" action="{{ route('password.email') }}" dusk="reset-password-form">
         {{ csrf_field() }}
 
-        <div class="form-group">
-            <input class="form-control" placeholder="E-mailadres" type="email" name="email" value="{{ old('email') }}" autofocus>
-        </div>
+        {% include 'layouts/fields/input' with {'name': 'email', 'type': 'email', 'label': 'E-mailadres', 'autofocus': true} %}
 
-        <div class="form-group mb-0">
-            <button class="btn btn-primary">
-                Versturen
-            </button>
+        <div class="mt-8 flex justify-between items-center">
+            <button class="button-primary">Versturen</button>
+
+            <div class="text-gray-500">
+                <a class="text-gray-500 underline text-sm mr-1" href="{{ route('login') }}">Inloggen</a>
+            </div>
         </div>
     </form>
 {% endblock %}

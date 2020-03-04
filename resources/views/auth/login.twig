@@ -1,23 +1,21 @@
 {% extends "layouts/guest.twig" %}
 
-{% block panel %}
-    <h1 class="mb-4">Inloggen</h1>
+{% block title %}Inloggen{% endblock %}
 
-    <form method="post" action="/login">
+{% block panel %}
+    <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 mb-4">Inloggen</h1>
+
+    <form method="post" action="{{ route('login.action') }}" dusk="login-form">
         {{ csrf_field() }}
 
-        <div class="form-group">
-            <input class="form-control" placeholder="E-mailadres" type="email" name="email" value="{{ old('email') }}" {% if old('email') is empty %}autofocus{% endif %}>
-        </div>
+        {% include 'layouts/fields/input' with {'name': 'email', 'type': 'email', 'label': 'E-mailadres', 'autofocus': old('email', request('email')) is empty, 'value': request('email')} %}
+        {% include 'layouts/fields/input' with {'name': 'password', 'type': 'password', 'label': 'Wachtwoord', 'autofocus': old('email', request('email')) is not empty} %}
 
-        <div class="form-group">
-            <input class="form-control" placeholder="Wachtwoord" type="password" name="password" {% if old('email') is not empty %}autofocus{% endif %}>
-        </div>
-
-        <div class="align-items-center d-flex justify-content-between">
+        <div class="mt-8 flex justify-between items-center">
             <input type="hidden" name="remember" value="1">
-            <button class="btn btn-primary">Inloggen</button>
-            <a class="text-muted small" href="/password/reset">
+            <button class="button-primary">Inloggen</button>
+
+            <a class="text-gray-500 underline text-sm" href="{{ route('password.request') }}">
                 Wachtwoord vergeten
             </a>
         </div>

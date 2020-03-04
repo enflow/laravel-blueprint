@@ -1,0 +1,22 @@
+{% embed "layouts/fields/wrapper.twig" %}
+    {% block label %}{{ label ?? name ?? null }}{% endblock %}
+    {% block actions %}
+        {% if help is defined and help %}
+        <div class="ml-1 font-normal"><i class="fal fa-question-circle" title="{{ help }}"></i></div>
+        {% endif %}
+    {% endblock %}
+    {% block input %}
+        <input class="form-input block w-full {{ class ?? null }}"
+               type="{{ type ?? 'text' }}"
+               id="{{ name }}"
+               name="{{ name }}"
+               value="{{ old(name, value ?? null) }}"
+               placeholder="{{ placeholder ?? null }}"
+               {% if (type ?? 'text') == 'email' %}autocapitalize="off"{% endif %}
+                {{ (required ?? null) ? 'required' : '' }}
+                {{ (readonly ?? null) ? 'readonly' : '' }}
+                {{ (disabled ?? null) ? 'disabled' : '' }}
+                {{ ((autocomplete is defined and not autocomplete) ? 'autocomplete="off"' : '')|raw }}
+                {{ (autofocus ?? false) ? 'autofocus' : '' }}>
+    {% endblock %}
+{% endembed %}

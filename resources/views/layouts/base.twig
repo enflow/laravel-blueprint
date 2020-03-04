@@ -1,27 +1,30 @@
 {% spaceless %}
     <!doctype html>
-    <html lang="{{ app().locale() }}">
+    <html lang="{{ app().locale() }}" class="text-gray-600 font-sans antialiased leading-relaxed">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name') }}</title>
+        <meta name="description" content=""/>
 
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
+        {% set title = block('title') is defined ? block('title') : null %}
+        {% set fullTitle = block('fullTitle') is defined ? block('fullTitle') : null %}
+        <title>{{ (fullTitle ?? null) ? fullTitle : ((title ? title ~ ' - ') ~ config('app.name')) }}</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800&display=block" rel="stylesheet">
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
-        {{ googleAnalyticsTag|raw }}
-        {{ browsersync() }}
-
-        <script src="{{ mix('js/app.js') }}"></script>
+        <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body>
-    {% if auth_check() %}
-        {% include "layouts/partials/header.twig" %}
-    {% endif %}
-    {{ block('body') }}
+    <body class="bg-gray-100">
+
+    <div class="min-h-screen bg-gray-100">
+            {{ block('body') }}
+    </div>
+
+
     </body>
     </html>
 {% endspaceless %}
