@@ -14,7 +14,7 @@
         "browser-sync-webpack-plugin": "^1.2.0",
         "cross-env": "^5.1",
         "enflow-sumoselect": "^4.4.2",
-        "jquery": "^3.2",
+        "jquery": "^3.5",
         "laravel-mix": "^4.0.7",
         "laravel-mix-purgecss": "^4.1.0",
         "lodash": "^4.17.13",
