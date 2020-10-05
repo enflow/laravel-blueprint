@@ -8,25 +8,16 @@
         "blueprint"
     ],
     "license": "Proprietary",
-    "type": "project",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://satis.enflow.nl/"
-        }
-    ],
     "require": {
         "php": "^7.4",
+        "enflow/component-laravel": "dev-master",
+        "facade/ignition": "^2.3.6",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
-        "facade/ignition": "^2.3.6",
-        "enflow/component-laravel": "dev-master",
-        "rcrowe/twigbridge": "^0.11.3",
+        "rcrowe/twigbridge": "dev-revert",
         "wildbit/swiftmailer-postmark": "^3.1"
     },
     "require-dev": {
@@ -59,6 +50,18 @@
             "Tests\\": "tests/"
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.enflow.nl/"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bytestream/TwigBridge.git"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
