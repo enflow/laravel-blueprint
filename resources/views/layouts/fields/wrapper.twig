@@ -1,8 +1,0 @@
-<label class="block mb-4">
-    <div class="block text-sm font-medium leading-5 text-gray-700 mb-1">
-        {{ block('label') }}{% if required|default(false) %}<span class="text-red-400 ml-1">*</span>{% elseif required is defined and not required %}<span class="text-sm text-gray-400 font-normal ml-1">(optioneel)</span>{% endif %}
-
-        {{ block('actions') ?? null }}
-    </div>
-    {{ block('input') }}
-</label>
