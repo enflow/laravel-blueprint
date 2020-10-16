@@ -17,7 +17,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
-        "rcrowe/twigbridge": "dev-revert",
+        "rcrowe/twigbridge": "dev-master",
         "wildbit/swiftmailer-postmark": "^3.1"
     },
     "require-dev": {
@@ -54,10 +54,6 @@
         {
             "type": "composer",
             "url": "https://satis.enflow.nl/"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/bytestream/TwigBridge.git"
         }
     ],
     "minimum-stability": "dev",
