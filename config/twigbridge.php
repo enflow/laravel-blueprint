@@ -193,6 +193,7 @@ return [
         */
         'functions' => [
             '__',
+            'mix',
         ],
 
         /*
@@ -225,7 +226,6 @@ return [
         */
         'filters' => [
             'get' => 'data_get',
-            'auto_target_blank' => 'auto_target_blank',
         ],
     ],
 ];

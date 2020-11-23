@@ -12,14 +12,5 @@ module.exports = {
         }
     },
 
-    future: {
-        removeDeprecatedGapUtilities: true, // https://tailwindcss.com/docs/upcoming-changes#remove-deprecated-gap-utilities
-        purgeLayersByDefault: true, // https://tailwindcss.com/docs/upcoming-changes#purge-layers-by-default
-    },
-
-    variants: {
-        opacity: ['responsive', 'hover', 'focus', 'disabled'],
-    },
-
     plugins: [require('@tailwindcss/ui')]
 };
