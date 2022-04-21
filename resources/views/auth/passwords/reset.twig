@@ -1,0 +1,19 @@
+{% extends "layouts/panel.twig" %}
+
+{% set logo = true %}
+{% set title = __('Setup a new password') %}
+
+{% block content %}
+    <form method="post" action="{{ route('password.update') }}">
+        {{ csrf_field() }}
+        <input type="hidden" name="token" value="{{ token }}">
+
+        <div class="space-y-4">
+            {% include 'components/fields/input' with {'name': 'email', 'type': 'email', 'label': __('Email address'), 'value': old('email', email), 'required': true} %}
+            {% include 'components/fields/input' with {'name': 'password', 'type': 'password', 'label': __('New password'), 'help': __('At least 8 characters.'), 'required': true} %}
+            {% include 'components/fields/input' with {'name': 'password_confirmation', 'type': 'password', 'label': __('Repeat new password'), 'required': true} %}
+        </div>
+
+        <button class="button mt-6">{{ __('Setup password') }}</button>
+    </form>
+{% endblock %}

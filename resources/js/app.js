@@ -1,3 +1,4 @@
-require('alpinejs');
+import Alpine from 'alpinejs';
+Alpine.start();
 
-require('./components/turbolinks.js');
+require('./components/links.js');

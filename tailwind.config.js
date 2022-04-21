@@ -1,16 +1,26 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-    purge: [
-        './storage/framework/views/*.php',
+    content: [
+        './app/**/*.php',
+        './resources/**/*.js',
         './resources/views/**/*.twig',
+        './resources/views/**/*.blade.php',
     ],
 
     theme: {
+        extend: {
+            colors: {
+                primary: '#ccc'
+            }
+        },
         fontFamily: {
-            sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         }
     },
 
-    plugins: [require('@tailwindcss/ui')]
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/line-clamp'),
+    ]
 };

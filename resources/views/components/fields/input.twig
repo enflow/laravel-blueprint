@@ -1,0 +1,25 @@
+{% embed "components/fields/wrapper.twig" %}
+    {% block label %}{{ label ?? null }}{% endblock %}
+    {% block input %}
+        {% set value = old(name, value ?? null) %}
+        {% set disabled = disabled ?? false %}
+        {% set type = type ?? 'text' %}
+        <input class="input focus:ring-primary focus:border-primary block w-full h-9 sm:text-sm border-gray-300 rounded-md shadow-sm {{ class ?? null }} {% if type == 'date' and not disabled %}empty{% endif %}"
+               type="{{ type }}"
+               id="{{ name }}"
+               is="{{ is ?? null }}"
+               name="{{ name }}"
+               value="{{ value }}"
+               {% if placeholder ?? null %}placeholder="{{ placeholder }}"{% endif %}
+               {% if type == 'number' %}step="{{ step ?? '0.01' }}"{% endif %}
+            {% if type == 'email' %}autocapitalize="off"{% endif %}
+            {% if list is defined and list %}list="{{ list }}" onfocus="this.value=''" onchange="this.blur();"{% endif %}
+            {{ required is defined and required is same as (true) ? 'required' : '' }}
+            {{ (readonly ?? null) ? 'readonly' : '' }}
+            {{ (multiple ?? null) ? 'multiple' : '' }}
+            {{ disabled ? 'disabled' : '' }}
+            {{ ((autocomplete is defined and not autocomplete) ? 'autocomplete="off"' : '')|raw }}
+            {{ (autofocus ?? false) ? 'autofocus' : '' }}
+            {{ (attributes ?? false) ? attributes|raw : '' }}>
+    {% endblock %}
+{% endembed %}

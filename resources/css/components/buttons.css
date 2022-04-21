@@ -1,0 +1,17 @@
+.button {
+    @apply inline-flex items-center px-6 py-2.5 border border-transparent font-semibold rounded-md shadow-sm text-black transition bg-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
+}
+
+.button-secondary {
+    @apply inline-flex items-center px-6 py-2.5 border border-primary font-semibold rounded-md shadow-sm text-primary transition bg-transparent hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
+}
+
+.button > svg:first-child,
+.button-secondary > svg:first-child {
+    @apply mr-2;
+}
+
+.button[disabled],
+.button-secondary[disabled] {
+    @apply opacity-50 pointer-events-none;
+}

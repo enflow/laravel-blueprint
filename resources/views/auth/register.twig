@@ -1,0 +1,39 @@
+{% extends "layouts/panel.twig" %}
+
+{% set logo = true %}
+{% set title = __('Register') %}
+
+{% block content %}
+    <p class="mb-4 font-lg -mt-6">{{ __('Try :appName :trialDurationInDays days for free.', {
+            appName: config('app.name'),
+            trialDurationInDays: config('registration.trial_duration_in_days')
+        }) }}</p>
+
+    <form method="post" action="{{ route('register.action') }}">
+        {{ csrf_field() }}
+
+        <div class="space-y-4">
+            {% include 'components/fields/input' with {'name': 'name', 'type': 'text', 'label': __('Full name'), 'required': true, 'autofocus': true} %}
+            {% include 'components/fields/input' with {'name': 'email', 'type': 'email', 'label': __('Email address'), 'value': request('email'), 'required': true} %}
+            {% include 'components/fields/input' with {'name': 'company_name', 'type': 'text', 'label': __('Company name'), 'required': true} %}
+            {% include 'components/fields/input' with {'name': 'company_email', 'type': 'text', 'label': __('Company email address'), 'value': request('email'), 'required': true} %}
+
+            <div class="space-y-1">
+                {% for field, name in {'terms_of_service': __('legal.terms_of_service'), 'dpa': __('legal.dpa')} %}
+                    <div class="flex items-center text-sm text-gray-500">
+                        {% include 'components/fields/toggle' with {
+                            'name': field,
+                            'type': 'toggle',
+                            'wrapperClass': 'mr-2',
+                            'required': true
+                        } %}
+
+                        {{ name|raw }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <button class="button mt-6">{{ __('Register') }}</button>
+    </form>
+{% endblock %}

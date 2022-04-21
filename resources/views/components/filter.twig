@@ -1,0 +1,26 @@
+{% embed "components/dropdown.twig" with {fields: block('fields')} %}
+    {% block action %}
+        <button @click="open = !open" class="bg-gray-100 w-12 h-12 rounded-md flex items-center justify-center border border-gray-300 shadow-sm text-gray-400 hover:text-gray-600 focus:outline-none" id="options-menu" aria-haspopup="true" aria-expanded="true" x-bind:aria-expanded="open">
+            <span class="sr-only">Open options</span>
+            {{ svg('filter') }}
+        </button>
+    {% endblock %}
+    {% block contents %}
+        <form action="?page=1" method="get">
+            {% if request('page') %}
+                {# Reset page on filter. #}
+                <input type="hidden" name="page" value="1">
+            {% endif %}
+            {% if request('query') %}
+                {# Keep search term #}
+                <input type="hidden" name="query" value="{{ request('query') }}">
+            {% endif %}
+
+            <div class="space-y-4 mb-4">
+                {{ fields|raw }}
+            </div>
+
+            <button class="text-gray-900 font-bold hover:opacity-75 text-sm focus:outline-none">{{ __('Apply filter') }}</button>
+        </form>
+    {% endblock %}
+{% endembed %}

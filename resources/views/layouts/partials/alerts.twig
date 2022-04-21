@@ -1,0 +1,14 @@
+{% set message = success ?? session('success', session('status')) %}
+{% if message %}
+    {% embed "components/alert.twig" with {state: 'success', messages: message, autohide: true} only %}{% endembed %}
+{% endif %}
+
+{% if errors.any %}
+    {% embed "components/alert.twig" with {state: 'error', errors: errors} only %}
+        {% block messages %}
+            {% for error in errors.all %}
+                <div>{{ error|e|nl2br|raw }}</div>
+            {% endfor %}
+        {% endblock %}
+    {% endembed %}
+{% endif %}

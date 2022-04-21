@@ -1,0 +1,27 @@
+{% embed "components/fields/wrapper.twig" %}
+    {% block label %}{{ label ?? null }}{% endblock %}
+    {% block input %}
+        {% set value = old(name, value is defined ? (value.key is defined ? value.key : value) : null) %}
+        {% set multiple = multiple ?? false %}
+
+        <select
+            name="{{ name ?? null }}{% if multiple %}[]{% endif %}"
+            id="{{ name ?? null }}"
+            class="select {{ class ?? null }}"
+            is="{{ is ?? null }}"
+            {{ required is defined and required is same as (true) ? 'required' : '' ? 'required' : '' }}
+            {{ (disabled ?? null) ? 'disabled' : '' }}
+            {{ (attributes ?? false) ? attributes|raw : '' }}
+            {{ multiple ? 'multiple' : '' }}
+            {{ multiple ? 'rows="10"'|raw : '' }}
+            {{ (readonly ?? null) ? 'readonly' : '' }}
+        >
+            {% if not multiple %}
+                <option value="" {{ value is null ? 'selected' : null }}>—</option>
+            {% endif %}
+            {% for id, name in options %}
+                <option value="{{ id }}" {{ (value is not null and value is same as (id)) or (multiple and id in value) ? 'selected' : '' }}>{{ name }}</option>
+            {% endfor %}
+        </select>
+    {% endblock %}
+{% endembed %}

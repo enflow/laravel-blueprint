@@ -1,0 +1,23 @@
+{% extends "layouts/panel.twig" %}
+
+{% set title = __('Login') %}
+
+{% block content %}
+    <form method="post" action="{{ route('login.action') }}">
+        {{ csrf_field() }}
+
+        <div class="space-y-4">
+            {% include 'components/fields/input' with {'name': 'email', 'type': 'email', 'label': __('Email address'), 'required': true, 'autofocus': old('email', request('email')) is empty, 'value': request('email')} %}
+            {% include 'components/fields/input' with {'name': 'password', 'type': 'password', 'label': __('Password'), 'required': true, 'autofocus': old('email', request('email')) is not empty} %}
+        </div>
+
+        <div class="flex justify-between items-center mt-6">
+            <input type="hidden" name="remember" value="1">
+            <button class="button">{{ __('Login') }}</button>
+
+            <a class="text-gray-500 underline text-sm" href="{{ route('password.request') }}">
+                {{ __('Forgot password') }}
+            </a>
+        </div>
+    </form>
+{% endblock %}

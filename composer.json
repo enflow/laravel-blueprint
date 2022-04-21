@@ -8,36 +8,40 @@
         "blueprint"
     ],
     "license": "Proprietary",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.enflow.nl"
+        },
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.1",
         "enflow/component-laravel": "dev-master",
-        "enflow/laravel-outdated-browser": "^1.0",
-        "facade/ignition": "^2.3.6",
-        "fideloper/proxy": "^4.2",
-        "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.0",
-        "laravel/tinker": "^2.0",
-        "rcrowe/twigbridge": "^0.12.1",
+        "enflow/laravel-outdated-browser": "^2.1",
+        "enflow/livewire-twig": "^2.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "laravel/framework": "^9.2",
+        "laravel/nova": "^4.2",
+        "laravel/tinker": "^2.7",
+        "laravel/ui": "^3.4",
+        "rcrowe/twigbridge": "^0.14",
         "wildbit/swiftmailer-postmark": "^3.1"
     },
     "require-dev": {
-        "enflow/component-testing": "dev-master",
-        "friendsofphp/php-cs-fixer": "^2.16",
         "fakerphp/faker": "^1.9.1",
-        "mockery/mockery": "^1.3.1",
-        "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3"
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "dont-discover": []
-        }
+        "friendsofphp/php-cs-fixer": "^v3.8.0",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^6.1",
+        "phpunit/phpunit": "^9.5.10",
+        "spatie/laravel-ignition": "^1.0",
+        "spatie/laravel-stubs": "^2.4"
     },
     "autoload": {
         "psr-4": {
@@ -51,27 +55,35 @@
             "Tests\\": "tests/"
         }
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://satis.enflow.nl/"
-        }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --force --tag=livewire:assets --ansi",
+            "@php artisan nova:publish --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan spatie-stub:publish --force"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ],
-        "test": "@php artisan run-tests",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
-        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
     }
 }

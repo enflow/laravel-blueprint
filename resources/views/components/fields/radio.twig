@@ -1,0 +1,28 @@
+{% embed "components/fields/wrapper.twig" %}
+    {% block label %}{{ label ?? null }}{% endblock %}
+    {% block input %}
+        {% set options = options is defined ? options : {1: __('Yes'), 0: __('No')} %}
+        {% set disabled = disabled ?? false %}
+        {% set readonly = readonly ?? false %}
+        {% set value = old(name, value is defined ? (value.key is defined ? value.key : value) : null) %}
+
+        <div class="flex {{ wrap ?? true ? 'flex-wrap' : null }} -mb-2 -mr-2">
+            {% for optionId, optionName in options %}
+                <label class="mr-2 mb-2 inline-flex items-center border border-gray-300 rounded-md shadow-s px-3 py-1.5 h-9 {% if disabled or readonly %}bg-gray-200 border-gray-300 pointer-events-none{% else %}cursor-pointer{% endif %}">
+                    <input type="radio"
+                           class="form-radio border-gray-300 text-primary focus:ring-primary {% if disabled or readonly %}bg-gray-300{% endif %}"
+                           name="{{ name }}"
+                           value="{{ optionId }}"
+                           {% if value is not null and optionId == value %}checked{% endif %}
+                            {{ disabled ? 'disabled' : '' }}
+                            {{ readonly ? 'readonly' : '' }}
+                        {{ (attributes ?? false) ? attributes|raw : '' }}
+                    >
+                    <span class="ml-2 text-sm">
+                        {{ optionName }}
+                    </span>
+                </label>
+            {% endfor %}
+        </div>
+    {% endblock %}
+{% endembed %}

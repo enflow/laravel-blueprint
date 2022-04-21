@@ -1,0 +1,21 @@
+{% extends "layouts/base.twig" %}
+
+{% block body %}
+    {% set content = block('content') ?? null %}
+
+    {{ block('top') ?? null }}
+
+    <div class="sm:mt-10 sm:mx-auto sm:w-full sm:max-w-lg">
+        <div class="relative">
+            <div class="sm:bg-white py-5 sm:py-12 px-4 sm:shadow-sm sm:rounded sm:px-14 relative z-10">
+                {% include "layouts/partials/alerts.twig" %}
+
+                {% if title ?? null %}
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 {{ content ? 'mb-6' : null }}">{{ title }}</h1>
+                {% endif %}
+
+                {{ content|raw }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

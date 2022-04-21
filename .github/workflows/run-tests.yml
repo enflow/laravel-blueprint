@@ -6,13 +6,14 @@ jobs:
   run-tests:
     name: Run tests
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v2
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: '8.1'
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
           coverage: none
 
@@ -34,7 +35,7 @@ jobs:
           key: yarn-${{ hashFiles('yarn.lock') }}
 
       - name: Run yarn
-        run: yarn && yarn dev
+        run: yarn && yarn prod
 
       - name: Prepare Laravel Application
         run: |
@@ -42,7 +43,7 @@ jobs:
           php artisan key:generate
 
       - name: Run tests
-        run: composer test
+        run: vendor/bin/phpunit
 
       - name: Upload artifacts
         uses: actions/upload-artifact@master

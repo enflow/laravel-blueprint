@@ -1,0 +1,25 @@
+{% embed "components/fields/wrapper.twig" %}
+    {% block label %}{{ label ?? null }}{% endblock %}
+    {% block input %}
+        <div class="flex items-center h-full" x-data="{ on: {{ old(name, value ?? null) ? 'true' : 'false' }} }" @set-value="on = $event.detail.value" x-cloak id="{{ name }}">
+            <button type="button"
+                    class="relative inline-flex shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none bg-gray-200"
+                    aria-pressed="false"
+                    x-ref="switch"
+                    x-state:on="{{ __('Enabled') }}"
+                    x-state:off="{{ __('Not Enabled') }}"
+                    :class="{ 'bg-primary': on, 'bg-gray-200': !(on) }"
+                    :aria-pressed="on.toString()"
+                    @click="on = !on"
+            >
+                <span class="sr-only">{{ __('Use setting') }}</span>
+                <span aria-hidden="true" class="pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200 translate-x-0" x-state:on="Enabled" x-state:off="Not Enabled" :class="{ 'translate-x-5': on, 'translate-x-0': !(on) }"></span>
+            </button>
+
+            <label class="hidden">
+                <input type="radio" name="{{ name }}" :checked="on" value="1">
+                <input type="radio" name="{{ name }}" :checked="! on" value="0">
+            </label>
+        </div>
+    {% endblock %}
+{% endembed %}

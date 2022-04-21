@@ -1,0 +1,15 @@
+{% extends "layouts/panel.twig" %}
+
+{% set logo = true %}
+{% set title = __('Forgot password') %}
+{% set back = route('login') %}
+
+{% block content %}
+    <form method="post" action="{{ route('password.email') }}">
+        {{ csrf_field() }}
+
+        {% include 'components/fields/input' with {'name': 'email', 'type': 'email', 'label': __('Email address'), 'autofocus': true} %}
+
+        <button class="button mt-6">{{ __('Send') }}</button>
+    </form>
+{% endblock %}

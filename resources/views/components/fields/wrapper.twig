@@ -1,0 +1,25 @@
+<div class="{{ wrapperClass ?? 'w-full' }}" {{ (wrapperAttributes ?? '')|raw }}>
+    {% set label = block('label') ?? null %}
+    {% if ((showLabel is defined and showLabel) or showLabel is not defined) and label %}
+        <label for="{{ name }}" class="flex items-center text-sm font-medium text-gray-900" {{ (labelAttributes ?? null)|raw }}>
+            {{ label|raw }}
+
+            {% if required is defined and (required == true or required == 'indicate') %}
+                <span class="text-red-400 self-start ml-1">*</span>
+            {% elseif required is defined and not required %}
+                <span class="text-sm text-gray-400 self-start font-normal ml-1">({{ __('optional') }})</span>
+            {% endif %}
+
+            {{ block('actions') ?? null }}
+        </label>
+        <div class="mt-1">
+            {{ block('input') }}
+        </div>
+    {% else %}
+        {{ block('input') }}
+    {% endif %}
+
+    {% if help ?? null %}
+        <p class="mt-1 text-sm text-gray-500" id="{{ name }}-description">{{ help }}</p>
+    {% endif %}
+</div>

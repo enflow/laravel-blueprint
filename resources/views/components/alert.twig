@@ -1,0 +1,36 @@
+{% set states = {
+    'success': {'class': 'bg-green-50 text-green-700 border-green-200', 'icon': 'check-circle', 'iconClass': 'text-green-700'},
+    'error': {'class': 'bg-red-50 text-red-700 border-red-200', 'icon': 'exclamation-circle', 'iconClass': 'text-red-700'},
+    'warning': {'class': 'bg-yellow-50 text-yellow-700 border-yellow-200', 'icon': 'exclamation-circle', 'iconClass': 'text-yellow-700'},
+    'info': {'class': 'bg-gray-50 text-gray-700 border-gray-200', 'icon': 'exclamation-circle', 'iconClass': 'text-primary'},
+} %}
+
+{% set actions = block('actions') ?? null %}
+
+<div
+    class="rounded-md {{ actions ? 'px-3 py-3' : 'p-4' }} mb-3 border {{ attribute(states, state).class }}"
+
+    {% if autohide ?? false %}
+        x-data="{ visible: true }"
+        x-init="setTimeout(function () {
+          visible = false
+        }, 3000)"
+        x-show="visible"
+    {% endif %}
+>
+    <div class="flex {{ actions ? 'items-center' : 'items-start' }}">
+        <div class="flex shrink-0 {{ actions ? '' : 'mt-0.5' }}">
+            {{ svg(icon ?? attribute(states, state).icon).class(attribute(states, state).iconClass ?? '') }}
+        </div>
+        <div class="ml-3 flex flex-col flex-1">
+            <div class="text-sm flex {{ actions ? 'items-center' : 'items-start' }} {{ (subtext ?? false) ? 'font-semibold' : null }} justify-between">
+                <div class="space-y-1">{{ (messages ?? block('messages'))|raw }}</div>
+
+                {{ actions|raw }}
+            </div>
+            {% if (subtext ?? false) %}
+                <div class="text-sm mt-2">{{ subtext }}</div>
+            {% endif %}
+        </div>
+    </div>
+</div>

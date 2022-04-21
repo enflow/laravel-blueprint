@@ -1,0 +1,15 @@
+{% set styles = {
+    'green': 'bg-green-100 text-green-800 border-green-300',
+    'yellow': 'bg-yellow-50 text-yellow-800 border-yellow-200',
+    'red': 'bg-red-100 text-red-800 border-red-200',
+    'gray': 'bg-gray-100 text-gray-800'
+} %}
+
+{% set sizes = {
+    'default': 'px-2.5 py-0.5 text-xs',
+    'large': 'px-3 py-0.5 text-sm'
+} %}
+
+<span class="inline-flex items-center font-mono rounded-full font-medium border {{ attribute(sizes, size|default('default')) }} {{ attribute(styles, color) }}">
+    {{ label }}
+</span>

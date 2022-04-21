@@ -1,0 +1,24 @@
+.select {
+    @apply shadow-sm block w-full pl-3 pr-10 py-2 h-9 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md !important;
+}
+
+.select[disabled], .select[readonly] {
+    @apply bg-gray-200 border-gray-300 opacity-100 appearance-none bg-none pointer-events-none pr-3 !important;
+}
+
+.select[multiple] {
+    @apply h-auto !important;
+}
+
+.input[disabled], .textarea[disabled], .input[readonly] {
+    @apply bg-gray-200 border-gray-300
+}
+
+input[type="checkbox"].checkbox {
+    @apply h-5 w-5 mr-2 text-primary focus:ring-primary border-gray-300 rounded shadow-sm;
+}
+
+input[type="checkbox"].checkbox:checked {
+    @apply border-transparent;
+}
+
