@@ -19,7 +19,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
     protected function gate()
     {
-        Gate::define('viewNova', fn($user) => Str::endsWith($user->email, '@enflow.nl'));
+        Gate::define('viewNova', fn ($user) => Str::endsWith($user->email, '@enflow.nl'));
     }
 
     protected function dashboards()
