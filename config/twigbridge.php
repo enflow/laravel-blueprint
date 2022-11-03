@@ -190,7 +190,7 @@ return [
             '__',
             'request',
             'app',
-            'mix',
+            'vite',
             'svg',
         ],
 
