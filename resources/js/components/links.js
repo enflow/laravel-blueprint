@@ -5,7 +5,7 @@
 //         links[i].addEventListener('click', function (e) {
 //             if (this.dataset.href.indexOf('#') === 0) {
 //                 window.location.href = this.dataset.href;
-//             } else if (e.ctrlKey || e.shiftKey) {
+//             } else if (e.ctrlKey || e.shiftKey || this.dataset.target === '_blank') {
 //                 window.open(this.dataset.href, '_blank');
 //             } else {
 //                 Turbolinks.visit(this.dataset.href);
@@ -21,7 +21,11 @@
 //                 e.preventDefault();
 //                 e.stopPropagation();
 //
-//                 Turbolinks.visit(this.href);
+//                 if (e.ctrlKey || e.shiftKey || this.target === '_blank') {
+//                     window.open(this.href, '_blank');
+//                 } else {
+//                     Turbolinks.visit(this.href);
+//                 }
 //
 //                 return false;
 //             });
