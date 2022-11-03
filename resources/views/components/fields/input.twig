@@ -12,6 +12,7 @@
                value="{{ value }}"
                {% if placeholder ?? null %}placeholder="{{ placeholder }}"{% endif %}
                {% if type == 'number' %}step="{{ step ?? '0.01' }}"{% endif %}
+               {% if form ?? null %}form="{{ form }}"{% endif %}
             {% if type == 'email' %}autocapitalize="off"{% endif %}
             {% if list is defined and list %}list="{{ list }}" onfocus="this.value=''" onchange="this.blur();"{% endif %}
             {{ required is defined and required is same as (true) ? 'required' : '' }}

@@ -4,7 +4,7 @@
         <div class=" overflow-y-auto max-h-56">
         {% for optionId, optionName in options %}
             <label class="block mb-1 flex items-center text-sm">
-                <input aria-label="{{ optionName }}" type="checkbox" name="{{ name }}[]" value="{{ optionId }}" {% if optionId in values ?? [] %}checked{% endif%} class="checkbox">
+                <input aria-label="{{ optionName }}" type="checkbox" name="{{ name }}[]" value="{{ optionId }}" {% if disabled ?? false %}disabled{% endif%} {% if optionId in values ?? [] %}checked{% endif%} class="checkbox">
                 <span class="truncate">{{ optionName }}</span>
             </label>
         {% endfor %}

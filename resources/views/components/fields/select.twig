@@ -20,7 +20,7 @@
                 <option value="" {{ value is null ? 'selected' : null }}>—</option>
             {% endif %}
             {% for id, name in options %}
-                <option value="{{ id }}" {{ (value is not null and value is same as (id)) or (multiple and id in value) ? 'selected' : '' }}>{{ name }}</option>
+                <option value="{{ id }}" {{ (value is not null and value == id) or (multiple and id in value) ? 'selected' : '' }}>{{ name }}</option>
             {% endfor %}
         </select>
     {% endblock %}

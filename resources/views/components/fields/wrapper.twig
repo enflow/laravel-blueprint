@@ -4,6 +4,12 @@
         <label for="{{ name }}" class="flex items-center text-sm font-medium text-gray-900" {{ (labelAttributes ?? null)|raw }}>
             {{ label|raw }}
 
+            {% if helpUrl is defined and helpUrl %}
+                <a href="{{ helpUrl }}" target="_blank" rel="noopener" class="ml-1">
+                    {{ svg('question-circle') }}
+                </a>
+            {% endif %}
+
             {% if required is defined and (required == true or required == 'indicate') %}
                 <span class="text-red-400 self-start ml-1">*</span>
             {% elseif required is defined and not required %}

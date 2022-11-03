@@ -1,0 +1,12 @@
+{% embed "components/fields/wrapper.twig" %}
+    {% block label %}{{ label ?? null }}{% endblock %}
+    {% block input %}
+        {% set value = old(name, value ?? null) %}
+
+        <div class="input focus:ring-primary focus:border-primary block w-full border h-9 sm:text-sm border-gray-300 rounded-md shadow-sm flex items-center" x-data="{value: '{{ value }}'}">
+            <input type="color" name="{{ name }}_value" value="{{ value }}" id="{{ name }}" x-model="value" class="w-6 h-6 ml-1.5" x-show="value" x-ref="picker">
+            <div x-show="!value" class="w-6 h-6 ml-1.5 border rounded bg-gray-50 text-gray-500 flex items-center justify-center font-mono cursor-pointer" @click="value = '#000000';">X</div>
+            <input type="text" name="{{ name }}" value="{{ value }}" id="{{ name }}_value" x-model="value" maxlength="7" class="border-none p-0 pl-2 focus:ring-0 text-sm flex-1" placeholder="{{ __('No color defined') }}">
+        </div>
+    {% endblock %}
+{% endembed %}
