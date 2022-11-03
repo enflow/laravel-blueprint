@@ -191,6 +191,7 @@ return [
             'request',
             'app',
             'mix',
+            'svg',
         ],
 
         /*

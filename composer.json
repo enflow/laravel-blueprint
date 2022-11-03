@@ -24,6 +24,7 @@
         "php": "^8.1",
         "enflow/component-laravel": "dev-master",
         "enflow/laravel-outdated-browser": "^2.1",
+        "enflow/laravel-svg": "^2.0",
         "enflow/livewire-twig": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.2",

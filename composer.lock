@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5bff4dd5ec70be969d6822bbade9525",
+    "content-hash": "65e61dc769c53b040f1ec2a20917f6e7",
     "packages": [
         {
             "name": "box/spout",
@@ -1035,6 +1035,68 @@
                 }
             ],
             "time": "2022-03-13T13:40:23+00:00"
+        },
+        {
+            "name": "enflow/laravel-svg",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/enflow/laravel-svg.git",
+                "reference": "41b0cfb50faf469f85295d1ff6de0da0563794e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/enflow/laravel-svg/zipball/41b0cfb50faf469f85295d1ff6de0da0563794e5",
+                "reference": "41b0cfb50faf469f85295d1ff6de0da0563794e5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.75|^9.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.23|^7.0",
+                "phpunit/phpunit": "^9.5",
+                "spatie/phpunit-snapshot-assertions": "^4.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Enflow\\Svg\\SvgServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Enflow\\Svg\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michel Bardelmeijer",
+                    "email": "michel@enflow.nl"
+                }
+            ],
+            "description": "Using SVGs with easy",
+            "support": {
+                "issues": "https://github.com/enflow/laravel-svg/issues",
+                "source": "https://github.com/enflow/laravel-svg/tree/2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://enflow.nl/contact",
+                    "type": "custom"
+                }
+            ],
+            "time": "2022-02-09T08:43:38+00:00"
         },
         {
             "name": "enflow/livewire-twig",

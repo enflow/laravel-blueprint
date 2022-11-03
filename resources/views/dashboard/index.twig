@@ -1,0 +1,57 @@
+{% extends "layouts/app.twig" %}
+
+{% set title = __('Dashboard') %}
+
+{% block content %}
+    <div class="space-y-4">
+        <h1>Welkom Evelien</h1>
+
+        <section class="bg-white p-4 rounded shadow">
+            <h2 class="font-bold text-black text-xl mb-2">Buttons</h2>
+            <div class="flex items-center gap-2">
+                <a href="" class="button">
+                    Button
+                </a>
+
+                <a href="" class="button-secondary">
+                    Button
+                </a>
+
+                {% embed "components/dropdown.twig" %}
+                    {% block action %}
+                        <a href="" class="button" @click.prevent="open = true">
+                            Button met dropdown {{ svg('angle-down') }}
+                        </a>
+                    {% endblock %}
+                    {% block contents %}
+                        Hier een lijst.
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        </section>
+
+        <section class="bg-white p-4 rounded shadow">
+            <h2 class="font-bold text-black text-xl mb-2">Badges</h2>
+            <div class="flex items-center gap-2 mb-2">
+                {% include 'components/badge' with {'color': 'green', 'size': 'default', 'label': 'Badge'} %}
+                {% include 'components/badge' with {'color': 'yellow', 'size': 'default', 'label': 'Badge'} %}
+                {% include 'components/badge' with {'color': 'red', 'size': 'default', 'label': 'Badge'} %}
+                {% include 'components/badge' with {'color': 'gray', 'size': 'default', 'label': 'Badge'} %}
+            </div>
+            <div class="flex items-center gap-2">
+                {% include 'components/badge' with {'color': 'green', 'size': 'large', 'label': 'Badge'} %}
+                {% include 'components/badge' with {'color': 'yellow', 'size': 'large', 'label': 'Badge'} %}
+                {% include 'components/badge' with {'color': 'red', 'size': 'large', 'label': 'Badge'} %}
+                {% include 'components/badge' with {'color': 'gray', 'size': 'large', 'label': 'Badge'} %}
+            </div>
+        </section>
+
+        <section class="bg-white p-4 rounded shadow space-y-3">
+            <h2 class="font-bold text-black text-xl mb-2">Forms</h2>
+            {% include 'components/fields/input' with {'name': 'email', 'type': 'email', 'label': __('Email address'), 'required': true} %}
+            {% include 'components/fields/input' with {'name': 'email', 'type': 'email', 'label': __('Email address'), 'required': true} %}
+            {% include 'components/fields/toggle' with {'name': 'enable', 'label': __('Toggle'), 'required': true} %}
+            {% include 'components/fields/checkboxes' with {'name': 'enable', 'label': __('Options'), 'options': {1: 'Option A', 2: 'Option B'}, 'required': true} %}
+        </section>
+    </div>
+{% endblock %}
