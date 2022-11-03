@@ -1,12 +1,9 @@
 <?php
 
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\Auth\InviteController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
-use App\Http\Controllers\Auth\SocialiteController;
-use App\Http\Controllers\Auth\TwoFactorLoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/login')->name('home');
