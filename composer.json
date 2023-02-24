@@ -19,6 +19,7 @@
         "laravel/nova": "^4.2",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.0",
+        "league/flysystem-aws-s3-v3": "^3.0",
         "rcrowe/twigbridge": "^0.14",
         "wildbit/swiftmailer-postmark": "^3.1"
     },

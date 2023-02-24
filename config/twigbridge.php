@@ -156,7 +156,9 @@ return [
         | in order to be marked as safe.
         |
         */
-        'facades' => [],
+        'facades' => [
+            'Vite',
+        ],
 
         /*
         |--------------------------------------------------------------------------
@@ -190,7 +192,6 @@ return [
             '__',
             'request',
             'app',
-            'vite',
             'svg',
         ],
 
