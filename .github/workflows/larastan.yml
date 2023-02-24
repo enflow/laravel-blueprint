@@ -1,0 +1,51 @@
+name: Larastan
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_call:
+
+jobs:
+  test:
+    name: Run Larastan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo, mysql
+          coverage: none
+
+      - name: Get Composer Cache Directory
+        id: cache-composer
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Restore Composer cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.cache-composer.outputs.dir }}
+          key: ${{ runner.os }}-${{ github.ref_name }}-composer-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install Composer dependencies
+        run: |
+          composer install --no-interaction --prefer-dist
+
+      - name: Copy .env
+        run: cp .env.example .env
+
+      - name: Generate key
+        run: php artisan key:generate
+
+      - name: Setup problem matchers
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Run Larastan
+        run: composer analyze
