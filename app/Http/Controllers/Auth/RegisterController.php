@@ -63,10 +63,10 @@ class RegisterController extends Controller
             ]);
 
             $user = User::create(Arr::only($data, ['name', 'email']) + [
-                    'locale' => app()->getLocale(),
-                    'role' => User::TENANT_MANAGER,
-                    'invitation_token' => Str::random(64),
-                ]);
+                'locale' => app()->getLocale(),
+                'role' => User::TENANT_MANAGER,
+                'invitation_token' => Str::random(64),
+            ]);
 
             // Assign tenant to user.
             $user->tenants()->sync([$tenant->id]);
@@ -78,8 +78,8 @@ class RegisterController extends Controller
 
         try {
             $user->notify(new UserInvite());
-        } catch (ClientException | Swift_TransportException | Swift_RfcComplianceException $e) {
-            logger('Sending invite failed: ' . $e->getMessage());
+        } catch (ClientException|Swift_TransportException|Swift_RfcComplianceException $e) {
+            logger('Sending invite failed: '.$e->getMessage());
         }
 
         return $user;
