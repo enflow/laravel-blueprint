@@ -49,4 +49,4 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Run Larastan
-        run: composer analyze
+        run: composer analyse
