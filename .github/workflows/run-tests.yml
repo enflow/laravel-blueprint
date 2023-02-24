@@ -36,6 +36,8 @@ jobs:
 
       - name: Run yarn
         run: yarn && yarn prod
+        env:
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
 
       - name: Prepare Laravel Application
         run: |
