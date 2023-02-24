@@ -1043,10 +1043,10 @@
                 "reference": "a16072902c6f7d7896173ab07b567f036a74fa00"
             },
             "dist": {
-                "type": "tar",
-                "url": "https://satis.enflow.nl/dist/enflow/error-templates/enflow-error-templates-a16072902c6f7d7896173ab07b567f036a74fa00-zip-b599ec.tar",
+                "type": "zip",
+                "url": "https://api.github.com/repos/enflow/error-templates/zipball/a16072902c6f7d7896173ab07b567f036a74fa00",
                 "reference": "a16072902c6f7d7896173ab07b567f036a74fa00",
-                "shasum": "bded0866536231b65662092f757c3c742f605359"
+                "shasum": ""
             },
             "require": {
                 "php": "^8.2"
@@ -1055,6 +1055,7 @@
                 "twig/twig": "^2.14|^3.0"
             },
             "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1066,8 +1067,8 @@
             ],
             "description": "Error templates used for Enflow projects and servers",
             "support": {
-                "source": "https://github.com/enflow/error-templates/tree/1.0",
-                "issues": "https://github.com/enflow/error-templates/issues"
+                "issues": "https://github.com/enflow/error-templates/issues",
+                "source": "https://github.com/enflow/error-templates/tree/1.0"
             },
             "time": "2023-02-24T08:59:23+00:00"
         },
