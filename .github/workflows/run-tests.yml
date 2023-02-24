@@ -17,14 +17,18 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
           coverage: none
 
-      - name: Cache composer dependencies
-        uses: actions/cache@v2
-        with:
-          path: vendor
-          key: composer-${{ hashFiles('composer.lock') }}
+      - name: Get Composer Cache Directory
+        id: cache-composer
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
 
-      - name: Run composer install
-        run: composer install -n --prefer-dist
+      - name: Restore Composer cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.cache-composer.outputs.dir }}
+          key: ${{ runner.os }}-${{ github.ref_name }}-composer-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
@@ -35,7 +39,7 @@ jobs:
           key: yarn-${{ hashFiles('yarn.lock') }}
 
       - name: Run yarn
-        run: yarn && yarn prod
+        run: yarn && yarn build
         env:
           FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
 
