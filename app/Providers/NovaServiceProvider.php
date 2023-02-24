@@ -34,7 +34,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         return [];
     }
 
-    public function register()
+    public function register(): void
     {
         //
     }
