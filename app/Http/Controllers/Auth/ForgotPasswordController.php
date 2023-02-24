@@ -17,20 +17,4 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
-
-    protected function validateEmail(Request $request)
-    {
-        $request->validate(['email' => 'required|email:rfc,dns']);
-
-        /** @var User|null $user */
-        $user = User::query()->where('email', $request->get('email'))->first();
-
-        if ($user && $user->invitation_token) {
-            $user->notify(new UserInvite());
-
-            throw ValidationException::withMessages([
-                __("Your account isn't activated yet. We have re-sent the invite email."),
-            ]);
-        }
-    }
 }
