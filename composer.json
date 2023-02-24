@@ -11,9 +11,9 @@
     "require": {
         "php": "^8.2",
         "enflow/component-laravel": "dev-master",
-        "enflow/laravel-outdated-browser": "^2.1",
-        "enflow/laravel-svg": "^2.0",
-        "enflow/livewire-twig": "^2.0",
+        "enflow/laravel-outdated-browser": "^3.0",
+        "enflow/laravel-svg": "^3.0",
+        "enflow/livewire-twig": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
         "laravel/nova": "^4.2",
@@ -28,7 +28,7 @@
         "laravel/pint": "^1.6",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10",
+        "phpunit/phpunit": "^10.0",
         "spatie/laravel-ignition": "^2.0"
     },
     "repositories": [
@@ -60,7 +60,8 @@
     },
     "config": {
         "allow-plugins": {
-            "ergebnis/composer-normalize": true
+            "ergebnis/composer-normalize": true,
+            "php-http/discovery": true
         },
         "optimize-autoloader": true,
         "preferred-install": "dist",
