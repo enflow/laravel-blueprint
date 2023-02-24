@@ -93,6 +93,11 @@
         "format": "vendor/bin/pint",
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
-        "analyse": "vendor/bin/phpstan analyse"
+        "analyse": "vendor/bin/phpstan analyse",
+        "all": [
+            "@format",
+            "@test",
+            "@analyse"
+        ]
     }
 }
