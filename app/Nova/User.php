@@ -2,7 +2,6 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
@@ -13,7 +12,9 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class User extends Resource
 {
     public static string $model = \App\Models\User::class;
+
     public static $title = 'name';
+
     public static $search = [
         'id', 'name', 'email',
     ];

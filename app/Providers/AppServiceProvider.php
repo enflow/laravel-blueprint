@@ -30,7 +30,6 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('absent', fn ($attribute, $value, $parameters, $validator) => ! Arr::has($validator->getData(), $attribute));
 
         Carbon::macro('userTimezone', fn () => $this->tz('Europe/Amsterdam')); /** @phpstan-ignore-line */
-
         Password::defaults(function () {
             $rule = Password::min(8)
                 ->letters()
