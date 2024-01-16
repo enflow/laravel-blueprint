@@ -3,6 +3,10 @@
 /public/build
 /public/hot
 /public/storage
+/public/vendor/livewire
+/public/vendor/nova
+/public/vendor/nova-kit
+/public/vendor/horizon
 /storage/*.key
 /vendor
 .env

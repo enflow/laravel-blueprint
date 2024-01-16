@@ -21,6 +21,7 @@
         "laravel/ui": "^4.0",
         "league/flysystem-aws-s3-v3": "^3.0",
         "rcrowe/twigbridge": "^0.14",
+        "spatie/laravel-ignition": "^2.0",
         "symfony/http-client": "^6.2",
         "symfony/postmark-mailer": "^6.2"
     },
@@ -30,8 +31,7 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "nunomaduro/larastan": "^2.0",
-        "phpunit/phpunit": "^10.0",
-        "spatie/laravel-ignition": "^2.0"
+        "phpunit/phpunit": "^10.0"
     },
     "repositories": [
         {
