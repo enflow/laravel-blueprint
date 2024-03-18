@@ -27,7 +27,7 @@ jobs:
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
 
       - name: Restore Composer cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.cache-composer.outputs.dir }}
           key: ${{ runner.os }}-${{ github.ref_name }}-composer-${{ hashFiles('**/composer.lock') }}
