@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8cd08925db4281e6cad2685d538b39e9",
+    "content-hash": "7d44edc3f34fcd02397ec25f309d0f04",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -865,16 +865,16 @@
         },
         {
             "name": "enflow/component-laravel",
-            "version": "dev-laravel11",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enflow/component-laravel.git",
-                "reference": "4c106547f2b302085274281079ef4cdac04b6e55"
+                "reference": "6f81e7698624c5ea718ce85b3fe59b7719fd3377"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enflow/component-laravel/zipball/4c106547f2b302085274281079ef4cdac04b6e55",
-                "reference": "4c106547f2b302085274281079ef4cdac04b6e55",
+                "url": "https://api.github.com/repos/enflow/component-laravel/zipball/6f81e7698624c5ea718ce85b3fe59b7719fd3377",
+                "reference": "6f81e7698624c5ea718ce85b3fe59b7719fd3377",
                 "shasum": ""
             },
             "require": {
@@ -887,6 +887,7 @@
                 "spatie/laravel-blink": "^1.0",
                 "spatie/once": "^2.0|^3.0"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -917,9 +918,9 @@
             "description": "Laravel package for Enflow's clients",
             "support": {
                 "issues": "https://github.com/enflow/component-laravel/issues",
-                "source": "https://github.com/enflow/component-laravel/tree/laravel11"
+                "source": "https://github.com/enflow/component-laravel/tree/master"
             },
-            "time": "2024-03-18T12:19:13+00:00"
+            "time": "2024-03-18T12:21:15+00:00"
         },
         {
             "name": "enflow/error-templates",
