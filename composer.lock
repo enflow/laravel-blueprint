@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d44edc3f34fcd02397ec25f309d0f04",
+    "content-hash": "8cd08925db4281e6cad2685d538b39e9",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -865,21 +865,21 @@
         },
         {
             "name": "enflow/component-laravel",
-            "version": "dev-master",
+            "version": "dev-laravel11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enflow/component-laravel.git",
-                "reference": "3e79df6faf8dd3b7743ba88f8d9730765e510d24"
+                "reference": "4c106547f2b302085274281079ef4cdac04b6e55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enflow/component-laravel/zipball/3e79df6faf8dd3b7743ba88f8d9730765e510d24",
-                "reference": "3e79df6faf8dd3b7743ba88f8d9730765e510d24",
+                "url": "https://api.github.com/repos/enflow/component-laravel/zipball/4c106547f2b302085274281079ef4cdac04b6e55",
+                "reference": "4c106547f2b302085274281079ef4cdac04b6e55",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "^2.5|^3.1.4|^4.0",
-                "enflow/error-templates": "^1.0",
+                "enflow/error-templates": "^2.0",
                 "itsgoingd/clockwork": "^4.0|^5.0",
                 "laravel/framework": "^10.0|^11.0",
                 "nunomaduro/collision": "^7.0|^8.0|^9.0",
@@ -887,7 +887,6 @@
                 "spatie/laravel-blink": "^1.0",
                 "spatie/once": "^2.0|^3.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -918,22 +917,22 @@
             "description": "Laravel package for Enflow's clients",
             "support": {
                 "issues": "https://github.com/enflow/component-laravel/issues",
-                "source": "https://github.com/enflow/component-laravel/tree/master"
+                "source": "https://github.com/enflow/component-laravel/tree/laravel11"
             },
-            "time": "2024-03-15T12:39:37+00:00"
+            "time": "2024-03-18T12:19:13+00:00"
         },
         {
             "name": "enflow/error-templates",
-            "version": "1.0",
+            "version": "2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enflow/error-templates.git",
-                "reference": "a16072902c6f7d7896173ab07b567f036a74fa00"
+                "reference": "d596dccd4790f5a3878b820355f223945906a177"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enflow/error-templates/zipball/a16072902c6f7d7896173ab07b567f036a74fa00",
-                "reference": "a16072902c6f7d7896173ab07b567f036a74fa00",
+                "url": "https://api.github.com/repos/enflow/error-templates/zipball/d596dccd4790f5a3878b820355f223945906a177",
+                "reference": "d596dccd4790f5a3878b820355f223945906a177",
                 "shasum": ""
             },
             "require": {
@@ -956,9 +955,9 @@
             "description": "Error templates used for Enflow projects and servers",
             "support": {
                 "issues": "https://github.com/enflow/error-templates/issues",
-                "source": "https://github.com/enflow/error-templates/tree/1.0"
+                "source": "https://github.com/enflow/error-templates/tree/2.0"
             },
-            "time": "2023-02-24T08:59:23+00:00"
+            "time": "2024-03-18T12:15:43+00:00"
         },
         {
             "name": "enflow/laravel-outdated-browser",
