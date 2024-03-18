@@ -27,6 +27,9 @@ jobs:
           path: ${{ steps.cache-composer.outputs.dir }}
           key: ${{ runner.os }}-${{ github.ref_name }}-composer-${{ hashFiles('**/composer.lock') }}
 
+      - name: Copy .env.example to .env
+        run: cp .env.example .env
+
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist
         env:
@@ -43,10 +46,8 @@ jobs:
         env:
           FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
 
-      - name: Prepare Laravel Application
-        run: |
-          cp .env.example .env
-          php artisan key:generate
+      - name: Generate application key
+        run: php artisan key:generate
 
       - name: Run tests
         run: vendor/bin/phpunit
