@@ -8,12 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: 8.3
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
           coverage: none
 
@@ -22,10 +22,13 @@ jobs:
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
 
       - name: Restore Composer cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.cache-composer.outputs.dir }}
           key: ${{ runner.os }}-${{ github.ref_name }}-composer-${{ hashFiles('**/composer.lock') }}
+
+      - name: Copy .env.example to .env
+        run: cp .env.example .env
 
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist
@@ -33,7 +36,7 @@ jobs:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
       - name: Cache yarn dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: yarn-${{ hashFiles('yarn.lock') }}
@@ -43,10 +46,8 @@ jobs:
         env:
           FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
 
-      - name: Prepare Laravel Application
-        run: |
-          cp .env.example .env
-          php artisan key:generate
+      - name: Generate application key
+        run: php artisan key:generate
 
       - name: Run tests
         run: vendor/bin/phpunit
